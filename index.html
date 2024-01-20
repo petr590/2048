@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Game 2048</title>
+
+	<link rel="stylesheet" href="mini-dark.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script defer src="jquery-3.6.0.min.js"></script>
+	<script defer src="script.js"></script>
+</head>
+<body>
+	<main>
+		<h1 class="main-header">2048</h1>
+
+		<div class="top">
+			<button class="restart">Начать сначала</button>
+			<div class="scorebox">Счёт: <span class="score">0</span></div>
+			<div class="scorebox">Максимальный: <span class="max-score">0</span></div>
+		</div>
+
+		<div class="field">
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+			<div class="place"></div>
+
+			<div class="overlay">
+				<!-- <div class="tile" style="--x:0;--y:0" value="2">2</div>
+				<div class="tile" style="--x:1;--y:0" value="4">4</div>
+				<div class="tile" style="--x:2;--y:0" value="8">8</div>
+				<div class="tile" style="--x:3;--y:0" value="16">16</div>
+				<div class="tile" style="--x:0;--y:1" value="32">32</div>
+				<div class="tile" style="--x:1;--y:1" value="64">64</div>
+				<div class="tile" style="--x:2;--y:1" value="128">128</div>
+				<div class="tile" style="--x:3;--y:1" value="256">256</div>
+				<div class="tile" style="--x:0;--y:2" value="512">512</div>
+				<div class="tile" style="--x:1;--y:2" value="1024">1024</div>
+				<div class="tile" style="--x:2;--y:2" value="2048">2048</div>
+				<div class="tile" style="--x:3;--y:2" value="4096">4096</div> -->
+			</div>
+		</div>
+
+		<dialog id="win-modal">
+			<h2>Вы выиграли!</h2>
+			
+			<button class="go">Продолжить</button>
+		</dialog>
+
+		<dialog id="lose-modal">
+			<h2>Конец игры</h2>
+			
+			<button class="go">Начать заново</button>
+		</dialog>
+	</main>
+</body>
+</html>

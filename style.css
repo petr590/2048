@@ -1,0 +1,128 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: sans-serif;
+}
+
+main {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.main-header {
+	font-size: 250%;
+}
+
+.top {
+	margin: 2rem 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.scorebox {
+	padding: 0.75rem 1rem;
+	border: 1px solid currentColor;
+	border-radius: 0.25rem;
+}
+
+.field {
+	--cell-size: 7rem;
+	--cell-gap: 0.75rem;
+	--border-radius: calc(var(--cell-gap) / 4);
+
+	position: relative;
+	display: grid;
+
+	grid-template-rows: repeat(4, var(--cell-size));
+	grid-template-columns: repeat(4, var(--cell-size));
+
+	gap: var(--cell-gap);
+	padding: var(--cell-gap);
+	border-radius: var(--cell-gap);
+
+ 	background-color: #696969;
+}
+
+.place {
+	border-radius: var(--border-radius);
+	background-color: #444;
+}
+
+.overlay {
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+	padding: var(--cell-gap);
+}
+
+.tile {
+	border-radius: var(--border-radius);
+	width: var(--cell-size);
+	height: var(--cell-size);
+	margin-top: var(--cell-gap);
+	margin-left: var(--cell-gap);
+
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	font-weight: bold;
+	font-size: 2rem;
+
+ 	background-color: #222;
+	color: #FFF;
+
+	box-shadow: 0px 0px 5px #222;
+
+	left: calc(var(--x, 0) * (var(--cell-size) + var(--cell-gap)));
+	top: calc(var(--y, 0) * (var(--cell-size) + var(--cell-gap)));
+
+	transition: 0.1s;
+
+	opacity: 0;
+	animation: appear 0.1s forwards;
+}
+
+@keyframes appear {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.tile[value='2'],
+.tile[value='4'] {
+	color: #3a3a3a;
+}
+
+.tile[value='2']    { background-color: hsl(236, 100%, 92%); }
+.tile[value='4']    { background-color: hsl(236, 100%, 78%); }
+.tile[value='8']    { background-color: hsl(236, 100%, 67%); }
+.tile[value='16']   { background-color: hsl(236, 100%, 60%); }
+.tile[value='32']   { background-color: hsl(236, 100%, 55%); }
+.tile[value='64']   { background-color: hsl(236, 100%, 40%); }
+.tile[value='128']  { background-color: hsl(210, 100%, 40%); }
+.tile[value='256']  { background-color: hsl(200,  95%, 40%); }
+.tile[value='512']  { background-color: hsl(192,  85%, 45%); }
+.tile[value='1024'] { background-color: hsl(194, 100%, 60%); }
+.tile[value='2048'] { background-color: hsl(258, 100%, 60%); }
+.tile[value='4096'] { background-color: hsl(258, 100%, 40%); }
+
+dialog {
+	color: var(--fore-color);
+	background-color: var(--back-color);
+
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+dialog:not(.shown) {
+	display: none;
+}
